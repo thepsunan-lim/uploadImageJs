@@ -1,0 +1,54 @@
+.CropImage-wrap {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.CropImage {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+.CropImage-cropper-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.CropImage-cropper {
+  display: flex;
+  opacity: 1;
+}
+
+.CropImage-cropper.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease-in;
+}
+
+.CropImage-image {
+  visibility: hidden;
+  position: absolute;
+}
+.CropImage-image.show {
+  visibility: visible;
+  margin: 0;
+  top: 50% !important;
+  left: 50% !important;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+}
+
+.ConfirmModal-button-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.ConfirmModal-button-wrap > button {
+  margin: 0 4px;
+}
