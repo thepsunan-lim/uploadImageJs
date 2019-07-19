@@ -4,7 +4,7 @@ This lib is the simple combination of CropperJS and Ant Design.
 CropperJs: https://fengyuanchen.github.io/cropperjs/
 Ant Design: https://ant.design/docs/react/introduce
 
----Overview & Process---
+#Overview & Process#
 
 1. There's common folder which contains 2 sub-folders (ExampleComponent, UploadFunction)
     /common->
@@ -15,7 +15,7 @@ Ant Design: https://ant.design/docs/react/introduce
                               /CropImage          ->
                                                   CropImage.js
   
----ExampleComponent---
+#ExampleComponent#
 
 2. ExampleComponent is a component that uses UploadFunction as an enchancer. It will have their functions ready from the enhancer which are uploadImg (to upload image when called), clearImg (to clear image when called) and onPreview (preview the uploaded image when called).
   
