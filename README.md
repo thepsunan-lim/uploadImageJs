@@ -1,10 +1,14 @@
+# UploadImageJS 
+
+## Intro
+
 This lib is for components that need enchancement for uploading and cropping images.
 
-This lib is the simple combination of CropperJS and Ant Design.
-CropperJs: https://fengyuanchen.github.io/cropperjs/
+This lib is the simple combination of CropperJS and Ant Design.  
+CropperJs: https://fengyuanchen.github.io/cropperjs/  
 Ant Design: https://ant.design/docs/react/introduce
 
-# Overview & Process
+## Overview & Process
 
 1. There's common folder which contains 2 sub-folders (ExampleComponent, UploadFunction)
     /common->
@@ -15,11 +19,11 @@ Ant Design: https://ant.design/docs/react/introduce
                               /CropImage          ->
                                                   CropImage.js
   
-# ExampleComponent
+## ExampleComponent
 
 2. ExampleComponent is a component that uses UploadFunction as an enchancer. It will have their functions ready from the enhancer which are uploadImg (to upload image when called), clearImg (to clear image when called) and onPreview (preview the uploaded image when called).
   
-# UploadFunction
+## UploadFunction
 
 3. The UploadFunction will retrieve the component and the component's props into itself and create upload and crop function as the component and its props said so. 
 
@@ -54,7 +58,7 @@ Ant Design: https://ant.design/docs/react/introduce
     9.3 1st Modal (the modal the helps previewing the uploaded and cropped image, (#4.5)cropTitle prop will be set here)  
     9.4 2nd Modal (the modal the contains the cropper part which will help crop the image)
     
-# CropperImage
+## CropperImage
 
 10. CropperJs part is in the "CropImage" folder which contains CropImage component. After UploadFunction pushed its props into this component, #4.1 #4.6-#4.8 will be set here. 
 
