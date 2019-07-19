@@ -43,10 +43,10 @@ Ant Design: https://ant.design/docs/react/introduce
 5. The UploadFunction has 2 main javascript files which will be the upload part and the crop part. The crop part has a sub-folder inside the "UploadFunction" folder.
 
 6. The UploadFunction as said in #3 will return the component with the function.  
-    6.1 The uploadImg function will trigger the "onClickButton" function which will triggers the none-display input part Upload component from Ant Design, which means that the select file window will show up. After selecting the image the function will check "beforeUpload" function to check the requirements that the file need to be.  
-    6.2 The clearImg function will trigger the "onRemove" function which then clear the file (fileList) or your image.  
-    6.3 The onPreview function will trigger the "handlePreview" function that will set the preview modal to be visible and let us see the uploaded image.  
-    6.4 The editImg function will trigger the "onClickEdit" function which will trigger the cropping part and will let you recrop the image.
+    6.1 The "uploadImg" function will trigger the "onClickButton" function which will triggers the none-display input part Upload component from Ant Design, which means that the select file window will show up. After selecting the image the function will check "beforeUpload" function to check the requirements that the file need to be.  
+    6.2 The "clearImg" function will trigger the "onRemove" function which then clear the file (fileList) or your image.  
+    6.3 The "onPreview" function will trigger the "handlePreview" function that will set the preview modal to be visible and let us see the uploaded image.  
+    6.4 The "editImg" function will trigger the "onClickEdit" function which will trigger the cropping part and will let you recrop the image.
 
 7. Others function in "UploadFunction.js" file are "getBase64" (render and load the image upload), "handleCancelCrop" (Cancel upload and crop) and "handleUpload" (get the cropped image and upload). "imgMaxSize" will change the max file size in "beforeUpload" function (you should set the messageErrorFileSize as well since the default is for 2MB).
 
