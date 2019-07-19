@@ -17,6 +17,7 @@ class UploadEnhancer extends Component {
         this.clearImg = this.onRemove.bind(this);
         this.uploadImg = this.onClickButton.bind(this);
         this.handlePreview = this.handlePreview.bind(this);
+        this.editImg = this.onClickEdit.bind(this);
     }
    
 
@@ -88,17 +89,25 @@ class UploadEnhancer extends Component {
             uploading: false
         });
         message.success(this.props.config.messageSuccess || this.props.messageSuccess || "Uploaded image successfully!");
+        this.setState({
+        });
     };
 
     onRemove = () => {
         this.setState({
-            fileList: []
+            fileList: [],
         });
     };
 
     onClickButton = (event) => {
         event.preventDefault(); 
         this.upload.upload.uploader.fileInput.click();
+    }
+
+    onClickEdit = (event) => {
+        this.setState ({
+            cropVisible: true
+        });
     }
 
     render() {
@@ -114,7 +123,7 @@ class UploadEnhancer extends Component {
         let Component = component;
         return (
             <Fragment>
-                <Component {...rest} img={img} onPreview={this.handlePreview} clearImg={this.clearImg} uploadImg={this.uploadImg} editImg={this.uploadImg}/>
+                <Component {...rest} img={img} onPreview={this.handlePreview} clearImg={this.clearImg} uploadImg={this.uploadImg} editImg={this.editImg}/>
                 <Upload 
                     ref = {
                         e => this.upload = e
@@ -126,7 +135,7 @@ class UploadEnhancer extends Component {
                     onRemove={this.onRemove}
                     showUploadList= {false}
                 >
-                </Upload>
+                </Upload> 
                 <Modal
                     bodyStyle={{ minWidth: 520 }}
                     width="fit-content"
