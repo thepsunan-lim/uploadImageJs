@@ -9,13 +9,14 @@ class ExampleComponent extends Component {
             uploadImg,
             disabled,
             onPreview,
+            editImg,
         } = this.props;
         return (
             img[0] ? (
                 <div className="upload-block has-image">
                     <img onClick={()=>onPreview(img[0])} src={img[0].url} alt=""/>
                     <div>
-                        <button onClick={uploadImg}>Edit</button>
+                        <button onClick={editImg}>Edit</button>
                         <button onClick={clearImg}>Clear</button>
                     </div>
                 </div>

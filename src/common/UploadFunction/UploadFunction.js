@@ -114,7 +114,7 @@ class UploadEnhancer extends Component {
         let Component = component;
         return (
             <Fragment>
-                <Component {...rest} img={img} onPreview={this.handlePreview} clearImg={this.clearImg} uploadImg={this.uploadImg} />
+                <Component {...rest} img={img} onPreview={this.handlePreview} clearImg={this.clearImg} uploadImg={this.uploadImg} editImg={this.uploadImg}/>
                 <Upload 
                     ref = {
                         e => this.upload = e
@@ -126,16 +126,7 @@ class UploadEnhancer extends Component {
                     onRemove={this.onRemove}
                     showUploadList= {false}
                 >
-                    
                 </Upload>
-                <Modal
-                    centered={true}
-                    visible={previewVisible}
-                    footer={null}
-                    onCancel={this.handleCancelPreview}
-                >
-                <img alt="example" style={{ width: "100%" }} src={previewImage} />
-                </Modal>
                 <Modal
                     bodyStyle={{ minWidth: 520 }}
                     width="fit-content"
