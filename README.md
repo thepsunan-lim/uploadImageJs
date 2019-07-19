@@ -11,13 +11,13 @@ Ant Design: https://ant.design/docs/react/introduce
 ## Overview & Process
 
 1. There's common folder which contains 2 sub-folders (ExampleComponent, UploadFunction)  
-    /common->  
-    > /ExampleComponent->  
+    /common
+    > /ExampleComponent
     >> ExampleComponent.js  
-            /UploadFunction  ->  
-                              UploadFunction.js  
-                              /CropImage          ->  
-                                                  CropImage.js
+    > /UploadFunction 
+    >> UploadFunction.js  
+    >> /CropImage         
+    >>> CropImage.js
   
 ## ExampleComponent
 
