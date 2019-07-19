@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import { Upload, message, Modal } from "antd";
-import CropImage from "../Upload/CropImage/CropImage.js";
+import CropImage from "./CropImage/CropImage.js";
 
 class UploadEnhancer extends Component {
     constructor(props) {
@@ -158,11 +158,11 @@ class UploadEnhancer extends Component {
     }
 }
 
-function functionTest (Component, config) {
+function UploadFunction (Component, config) {
     return (
         (props) => <UploadEnhancer {...config} {...props} component={Component} />
     )
 }
 
-export default functionTest;
+export default UploadFunction;
 

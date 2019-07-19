@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import functionTest from '../functionTest/functionTest.js'
+import UploadFunction from '../UploadFunction/UploadFunction.js'
 
-class componentTest extends Component {
+class ExampleComponent extends Component {
     render() {
         let {
             img = [{}],
@@ -28,7 +28,7 @@ class componentTest extends Component {
     }
 }
 
-export default functionTest (componentTest, {
+export default UploadFunction (ExampleComponent, {
     ratio: undefined, // set aspect ratio for cropping
     messageErrorFileType: undefined, // set text for error file type
     messageErrorFileSize: undefined, // set text for error file size
