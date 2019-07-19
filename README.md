@@ -4,7 +4,7 @@
 
 This lib is for components that need enchancement for uploading and cropping images.
 
-This lib is the simple combination of CropperJS and Ant Design.  
+This lib is a simple combination of CropperJS and Ant Design.  
 CropperJs: https://fengyuanchen.github.io/cropperjs/  
 Ant Design: https://ant.design/docs/react/introduce
 
