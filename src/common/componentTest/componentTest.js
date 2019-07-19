@@ -28,5 +28,14 @@ class componentTest extends Component {
     }
 }
 
-export default functionTest(componentTest);
-
+export default functionTest (componentTest, {
+    ratio: undefined, // set aspect ratio for cropping
+    messageErrorFileType: undefined, // set text for error file type
+    messageErrorFileSize: undefined, // set text for error file size
+    messageSuccess: undefined, // set text for successful upload
+    cropTitle: undefined, // set text for crop title
+    cropButtonText: undefined, // set text for crop button
+    undoButtonText: undefined, // set text for undo button
+    saveButtonText: undefined, // set text for done button
+    imgMaxSize: undefined, // set max file size for image
+});

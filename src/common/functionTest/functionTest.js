@@ -18,6 +18,7 @@ class UploadEnhancer extends Component {
         this.uploadImg = this.onClickButton.bind(this);
         this.handlePreview = this.handlePreview.bind(this);
     }
+   
 
     getBase64 = (img, callback) => {
         const reader = new FileReader();
@@ -28,11 +29,11 @@ class UploadEnhancer extends Component {
     beforeUpload = file => {
         const isPNGJPG = file.type === "image/png" || file.type === "image/jpeg";
         if (!isPNGJPG) {
-            message.error(this.props.messageErrorFileType || "You can only upload (PNG, JPG) file!");
+            message.error(this.props.config.messageErrorFileType || this.props.messageErrorFileType || "You can only upload (PNG, JPG) file!");
         }
-        const isLt2M = file.size / 1024 / 1024 < 2;
+        const isLt2M = file.size / 1024 / 1024 < (this.props.config.imgMaxSize || this.props.imgMaxSize || 2);
         if (!isLt2M) {
-            message.error(this.props.messageErrorFileSize || "Image must smaller than 2MB!");
+            message.error(this.props.config.messageErrorFileSize || this.props.messageErrorFileSize || "Image must smaller than 2MB!");
         }
         if (isPNGJPG && isLt2M) {
             const self = this;
@@ -86,7 +87,7 @@ class UploadEnhancer extends Component {
         this.setState({
             uploading: false
         });
-        message.success(this.props.messageSuccess || "Uploaded image successfully!");
+        message.success(this.props.config.messageSuccess || this.props.messageSuccess || "Uploaded image successfully!");
     };
 
     onRemove = () => {
@@ -140,7 +141,7 @@ class UploadEnhancer extends Component {
                     width="fit-content"
                     centered={true}
                     destroyOnClose={true}
-                    title={this.props.cropTitle || "Crop Image"}
+                    title={this.props.config.cropTitle || this.props.cropTitle || "Crop Image"}
                     footer={null}
                     visible={cropVisible}
                     onCancel={this.handleCancelCrop}
@@ -157,9 +158,9 @@ class UploadEnhancer extends Component {
     }
 }
 
-function functionTest (Component) {
+function functionTest (Component, config) {
     return (
-        (props) => <UploadEnhancer {...props} component={Component} />
+        (props) => <UploadEnhancer {...config} {...props} component={Component} />
     )
 }
 

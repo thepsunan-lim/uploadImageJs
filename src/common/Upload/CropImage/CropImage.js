@@ -6,7 +6,7 @@ import { Button } from "antd";
 export default class CropImage extends Component {
   constructor(props) {
     super(props);
-    const { aspectRatio = 1/1 } = props; // help! :D (used to be 1/1)
+    const { aspectRatio = (this.props.config.ratio || this.props.ratio || 0)} = props;
     this.state = {
       ready: false,
       src: this.props.src,
@@ -157,16 +157,16 @@ export default class CropImage extends Component {
         {!this.state.cropped ? (
           <div className="ConfirmModal-button-wrap">
             <Button key="crop" type="primary" onClick={this.reviewCropImage}>
-              {this.props.cropButtonText || "Crop"}
+              {this.props.config.cropButtonText || this.props.cropButtonText || "Crop"}
             </Button>
           </div>
         ) : (
           <div className="ConfirmModal-button-wrap">
             <Button key="undo" onClick={this.undoCropped}>
-              {this.props.undoButtonText || "Undo"}
+              {this.props.config.undoButtonText || this.props.undoButtonText || "Undo"}
             </Button>
             <Button key="save" type="primary" onClick={this.cropImage}>
-              {this.props.saveButtonText || "Save"}
+              {this.props.config.saveButtonText || this.props.saveButtonText || "Save"}
             </Button>
           </div>
         )}
