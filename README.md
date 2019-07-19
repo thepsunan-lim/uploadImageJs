@@ -57,8 +57,7 @@ Ant Design: https://ant.design/docs/react/introduce
 9. Returned components in "UploadFunction.js":  
     9.1 Component (the component that used this function with the given functions & image from "UploadFunction.js")  
     9.2 Upload (the upload component from Ant Design which is always hidden)  
-    9.3 1st Modal (the modal the helps previewing the uploaded and cropped image, (#4.5)cropTitle prop will be set here)  
-    9.4 2nd Modal (the modal the contains the cropper part which will help crop the image)
+    9.3 Modal (the modal the contains the cropper part which will help crop the image, (#4.5)cropTitle prop will be set here))
     
 ## CropperImage
 
