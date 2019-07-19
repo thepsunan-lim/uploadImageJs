@@ -14,6 +14,8 @@ Ant Design: https://ant.design/docs/react/introduce
     /common
     > /ExampleComponent
     >> ExampleComponent.js  
+    
+    /common
     > /UploadFunction 
     >> UploadFunction.js  
     >> /CropImage         
