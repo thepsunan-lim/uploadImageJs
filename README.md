@@ -1,68 +1,79 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# UploadImageJS 
 
-## Available Scripts
+## Intro
 
-In the project directory, you can run:
+This lib is for components that need enchancement for uploading and cropping images.
 
-### `npm start`
+This lib is a simple combination of CropperJS and Ant Design.  
+CropperJs: https://fengyuanchen.github.io/cropperjs/  
+Ant Design: https://ant.design/docs/react/introduce
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview & Process
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+1. There's common folder which contains 2 sub-folders (ExampleComponent, UploadFunction)  
+    /common
+    > /ExampleComponent
+    >> ExampleComponent.js  
+    
+    /common
+    > /UploadFunction 
+    >> UploadFunction.js  
+    >> /CropImage         
+    >>> CropImage.js
+  
+## ExampleComponent
 
-### `npm test`
+2. ExampleComponent is a component that uses UploadFunction as an enchancer. It will have their functions ready from the enhancer which are uploadImg (to upload image when called), clearImg (to clear image when called) and onPreview (preview the uploaded image when called).
+  
+## UploadFunction
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. The UploadFunction will retrieve the component and the component's props into itself and create upload and crop function as the component and its props said so. 
 
-### `npm run build`
+4. The available config/settings to the function are:  
+    4.1 ratio (set aspect ratio for cropping)  
+    4.2 messageErrorFileType (set text for error file type)  
+    4.3 messageErrorFileSize (set text for error file size)  
+    4.4 messageSuccess (set text for successful upload)  
+    4.5 cropTitle (set text for crop title)  
+    4.6 cropButtonText (set text for crop button)  
+    4.7 undoButtonText (set text for undo button)  
+    4.8 saveButtonText (set text for done button)  
+    4.9 imgMaxSize (set max file size for image)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. The UploadFunction has 2 main javascript files which will be the upload part and the crop part. The crop part has a sub-folder inside the "UploadFunction" folder.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+6. The UploadFunction as said in #3 will return the component with the function.  
+    6.1 The "uploadImg" function will trigger the "onClickButton" function which will triggers the none-display input part Upload component from Ant Design, which means that the select file window will show up. After selecting the image the function will check "beforeUpload" function to check the requirements that the file need to be.  
+    6.2 The "clearImg" function will trigger the "onRemove" function which then clear the file (fileList) or your image.  
+    6.3 The "onPreview" function will trigger the "handlePreview" function that will set the preview modal to be visible and let us see the uploaded image.  
+    6.4 The "editImg" function will trigger the "onClickEdit" function which will trigger the cropping part and will let you recrop the image.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+7. Others function in "UploadFunction.js" file are "getBase64" (render and load the image upload), "handleCancelCrop" (Cancel upload and crop) and "handleUpload" (get the cropped image and upload). "imgMaxSize" will change the max file size in "beforeUpload" function (you should set the messageErrorFileSize as well since the default is for 2MB).
 
-### `npm run eject`
+8. Messages the will pop up are:  
+    8.1 messageErrorFileType (shown when attempt to upload the wrong file type)  
+    8.2 messageErrorFileSize (shown when attempt to upload oversize file)  
+    8.3 messageSuccess (shown when successfully upload and crop)  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+9. Returned components in "UploadFunction.js":  
+    9.1 Component (the component that used this function with the given functions & image from "UploadFunction.js")  
+    9.2 Upload (the upload component from Ant Design which is always hidden)  
+    9.3 Modal (the modal the contains the cropper part which will help crop the image, (#4.5)cropTitle prop will be set here))
+    
+## CropperImage
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+10. CropperJs part is in the "CropImage" folder which contains CropImage component. After UploadFunction pushed its props into this component, #4.1 #4.6-#4.8 will be set here. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+11. The functions in CropImage are:  
+    11.1 onReady (will check if the image uploaded is ready to crop or not)  
+    11.2 cropImage (will crop the image with the settings in the function)  
+    11.3 reviewCropImage (will review 11.2 if correctly defined or not)  
+    11.4 undoCropped (will undo the cropped and back to the cropping part)  
+    11.5 cropEnd (will end the cropping)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+12. The return part of this is pretty simple so no explaination is needed for now. :D (Cropper component is from CropperJs)
+  
+------
+13. All the configurations available can be set on either the component when called or in the component that used the function.
+  
+Have Fun! 
