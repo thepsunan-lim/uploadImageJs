@@ -14,7 +14,8 @@ class ExampleComponent extends Component {
         return (
             img[0] ? (
                 <div className="upload-block has-image">
-                    <img onClick={()=>onPreview(img[0])} src={img[0].url} alt=""/>
+                    <img onClick={()=>onPreview(img[0])} src={img[0].url} alt=""/> 
+                    {/* Because we use upload component from ant design that requires filelist, we use img[0] to get the one and only file in that filelist*/}
                     <div>
                         <button onClick={editImg}>Edit</button>
                         <button onClick={clearImg}>Clear</button>
